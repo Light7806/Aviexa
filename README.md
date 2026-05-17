@@ -138,5 +138,3 @@ python verify_demo.py
 All 17 checks should pass (imports, CLI, in-process API, anomaly detection, PDF generation).
 
 ---
-
-> **Note for judges:** The code runs fully offline in Bob mock mode. No GPU, no API keys, no internet required for the demo.
