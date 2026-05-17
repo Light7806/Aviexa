@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aviexa.exe — IBM Bob ML Diagnostics</title>
+  <meta name="description" content="Aviexa detects ML training issues, asks IBM Bob for fixes, and exports diagnostic PDF reports.">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <div class="brand-line">
+        <span class="brand-mark">A</span>
+        <span>Hackathon Edition · IBM Bob Powered</span>
+      </div>
+
+      <div class="hero-art" aria-hidden="true">
+        <div class="sketch sketch-window">&lt;/&gt;</div>
+        <div class="sketch sketch-flow">◇</div>
+        <div class="sketch sketch-terminal">&gt;_</div>
+        <div class="sketch sketch-cloud">⇧</div>
+      </div>
+
+      <h1>Aviexa</h1>
+      <p class="tagline">Your training run has a doctor now.</p>
+      <p class="summary">
+        Select a PyTorch project, detect risky ML training code, get an IBM Bob-style diagnosis,
+        record the suggested fix, and export a PDF report.
+      </p>
+
+      <div class="status-row">
+        <span id="chip-backend" class="status-pill"><span class="dot"></span><span>Backend…</span></span>
+        <span id="chip-vscode" class="status-pill muted"><span class="dot"></span><span>VS Code unchecked</span></span>
+      </div>
+    </section>
+
+    <section class="workspace-card">
+      <div class="card-heading">
+        <p class="eyebrow">Demo Workspace</p>
+        <h2>Open and diagnose a training project</h2>
+      </div>
+
+      <label class="field-label" for="folder-path">Project folder</label>
+      <div class="folder-row">
+        <input id="folder-path" value="demo\external_project" aria-label="Project folder path">
+        <button id="inspect-btn" class="button secondary" type="button">Inspect Folder</button>
+      </div>
+
+      <div class="actions">
+        <button id="check-vscode-btn" class="button ghost" type="button">Check VS Code</button>
+        <button id="open-vscode-btn" class="button ghost" type="button">Open in VS Code</button>
+        <button id="golden-demo-btn" class="button primary" type="button">Run Demo</button>
+      </div>
+
+      <div id="launch-result" class="notice hidden"></div>
+    </section>
+
+    <section id="results-area" class="results-area hidden">
+      <div class="section-title">
+        <p class="eyebrow">Results</p>
+        <h2>Aviexa diagnosis</h2>
+      </div>
+
+      <div class="metrics-row">
+        <div class="metric"><strong id="m-files">0</strong><span>Files scanned</span></div>
+        <div class="metric"><strong id="m-findings">0</strong><span>Code findings</span></div>
+        <div class="metric"><strong id="m-anomalies">0</strong><span>Training issues</span></div>
+        <div class="metric"><strong id="m-diagnoses">0</strong><span>Bob diagnoses</span></div>
+      </div>
+
+      <div class="result-grid">
+        <article class="panel">
+          <div class="panel-head">
+            <span>01</span>
+            <h3>Code scan</h3>
+          </div>
+          <div id="inspect-output" class="panel-body empty">Click Inspect Folder or Run Demo.</div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <span>02</span>
+            <h3>Bob diagnosis and fix</h3>
+          </div>
+          <div id="diagnosis-output" class="panel-body empty">Run Demo to generate a diagnosis.</div>
+        </article>
+      </div>
+
+      <article class="panel report-panel">
+        <div class="panel-head">
+          <span>03</span>
+          <h3>PDF evidence report</h3>
+        </div>
+        <div id="report-output" class="panel-body empty">The report link appears after Run Demo.</div>
+      </article>
+    </section>
+  </main>
+
+  <div id="loading-overlay" class="loading-overlay hidden">
+    <div class="loading-card">
+      <div class="spinner"></div>
+      <strong id="loading-msg">Running demo…</strong>
+      <span id="loading-sub">Inspecting project and generating report</span>
+    </div>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+{
+  "name": "aviexa",
+  "displayName": "Aviexa — ML Training Diagnostics",
+  "description": "Real-time PyTorch training diagnostics powered by IBM Bob AI",
+  "version": "1.0.0",
+  "publisher": "aviexa",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "main": "./extension/src/extension.js",
+  "activationEvents": [
+    "onCommand:aviexa.startSession",
+    "onCommand:aviexa.inspectWorkspace"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "aviexa.startSession",
+        "title": "Aviexa: Start Training Session",
+        "icon": "$(debug-start)",
+        "category": "Aviexa"
+      },
+      {
+        "command": "aviexa.stopSession",
+        "title": "Aviexa: Stop Session Monitoring",
+        "icon": "$(debug-stop)",
+        "category": "Aviexa"
+      },
+      {
+        "command": "aviexa.showMetrics",
+        "title": "Aviexa: Show Live Metrics Panel",
+        "icon": "$(graph)",
+        "category": "Aviexa"
+      },
+      {
+        "command": "aviexa.showDiagnosis",
+        "title": "Aviexa: Show Bob Diagnosis Panel",
+        "icon": "$(lightbulb)",
+        "category": "Aviexa"
+      },
+      {
+        "command": "aviexa.applyFix",
+        "title": "Aviexa: Apply Bob's Code Fix",
+        "icon": "$(wrench)",
+        "category": "Aviexa"
+      },
+      {
+        "command": "aviexa.inspectWorkspace",
+        "title": "Aviexa: Inspect Current Workspace",
+        "icon": "$(search)",
+        "category": "Aviexa"
+      }
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "aviexa.startSession"
+        },
+        {
+          "command": "aviexa.stopSession"
+        },
+        {
+          "command": "aviexa.showMetrics"
+        },
+        {
+          "command": "aviexa.showDiagnosis"
+        },
+        {
+          "command": "aviexa.inspectWorkspace"
+        }
+      ],
+      "editor/title": [
+        {
+          "command": "aviexa.startSession",
+          "group": "navigation",
+          "when": "resourceExtname == .py"
+        }
+      ]
+    },
+    "views": {
+      "explorer": [
+        {
+          "id": "aviexa.sessionsView",
+          "name": "Aviexa Sessions",
+          "icon": "$(pulse)",
+          "contextualTitle": "Aviexa ML Diagnostics"
+        }
+      ]
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "aviexa",
+          "title": "Aviexa ML Diagnostics",
+          "icon": "$(pulse)"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Aviexa",
+      "properties": {
+        "aviexa.apiPort": {
+          "type": "integer",
+          "default": 8765,
+          "description": "Port for the Aviexa FastAPI backend"
+        },
+        "aviexa.pollIntervalMs": {
+          "type": "integer",
+          "default": 500,
+          "description": "Polling interval in milliseconds for telemetry updates"
+        }
+      }
+    }
+  },
+  "devDependencies": {},
+  "dependencies": {}
+}

@@ -1,0 +1,22 @@
+# === Core ML ===
+torch>=2.0.0
+numpy>=1.24.0
+scipy>=1.10.0
+
+# === API Backend ===
+fastapi>=0.100.0
+uvicorn>=0.23.0
+pydantic>=2.0.0
+httpx>=0.24.0
+
+# === IBM Bob ===
+# (Bob SDK or API client — confirm exact package name from Bob docs)
+# ibm-bob-sdk>=1.0.0
+
+# === Reporting ===
+reportlab>=4.0.0
+matplotlib>=3.7.0
+
+# === Dev / Test ===
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
