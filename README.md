@@ -34,10 +34,10 @@ The full demo works in a single click from the web UI:
 
 | Step | Action | What happens |
 |------|--------|--------------|
-| 1 | Click **Check / Integrate VS Code** | Confirms VS Code CLI availability |
+| 1 | Click **Check VS Code** | Confirms VS Code CLI availability |
 | 2 | Folder: `demo\external_project` (pre-filled) | Points to the bundled bad-LR training script |
-| 3 | Click **Inspect Selected Folder** | Static code scan — finds high LR and missing grad clipping |
-| 4 | Click ⭐ **Run Golden Demo** | Full automated path below |
+| 3 | Click **Inspect Folder** | Static code scan — finds high LR and missing grad clipping |
+| 4 | Click **Run Demo** | Full automated path below |
 | 5 | Click **Record Fix for PDF** | Confirms the Bob-style suggested fix in the report trail |
 | 6 | Click **Export PDF** | Opens the generated diagnostic report |
 
@@ -119,6 +119,13 @@ python aviexa.py api
 ```
 
 Bob mock mode returns rich structured diagnoses identical in shape to real Bob responses, so the PDF report and web UI look identical.
+
+For hackathon review, Bob's role is visible in:
+
+- `bob/` — context builder, prompt templates, client boundary, and response parser
+- `/demo/golden` — turns detected training issues into Bob-style diagnosis objects
+- `Record Fix for PDF` — records Bob's suggested fix into the report trail
+- exported PDF reports — show findings, anomaly, Bob diagnosis, suggested fix, and charts
 
 ---
 
