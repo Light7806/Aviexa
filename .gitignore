@@ -65,6 +65,8 @@ aviexa-reports/
 reports/*.pdf
 !bob-sessions/
 !bob-sessions/**
+!bob_sessions/
+!bob_sessions/**
 
 # Logs
 *.log
