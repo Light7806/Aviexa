@@ -129,6 +129,32 @@ For hackathon review, Bob's role is visible in:
 
 ---
 
+## Production Vision
+
+The hackathon version proves the core Aviexa workflow with a reliable local app and bundled PyTorch demo. The production goal is to turn Aviexa into a full developer companion for ML debugging:
+
+1. **Installable desktop-style app and VS Code extension**  
+   Developers open Aviexa, select an ML project folder, and launch VS Code with Aviexa diagnostics available inside the editor.
+
+2. **Live training monitoring**  
+   Aviexa attaches to real PyTorch training runs, captures loss curves, gradient norms, tensor shapes, and runtime events, then flags suspicious behavior while training is still running.
+
+3. **IBM Bob-powered code reasoning**  
+   Instead of sending generic error text, Aviexa builds a structured context packet for Bob: anomaly type, affected layer, telemetry history, relevant code snippets, and project metadata. Bob then returns ranked root-cause hypotheses and fix suggestions.
+
+4. **Safe fix application workflow**  
+   The current demo records Bob's suggested fix into the PDF evidence trail. A production version would show a diff inside VS Code, let the developer approve it, apply the patch safely, and keep an undoable fix history.
+
+5. **Auditable reports for teams**  
+   Every session can export a PDF showing what was scanned, what failed, what Bob diagnosed, what fix was suggested or applied, and supporting charts. This makes AI-assisted debugging reviewable instead of hidden in a chat transcript.
+
+6. **Broader ML framework support**  
+   The proof of concept focuses on PyTorch. The same architecture can expand to TensorFlow, JAX, larger model projects, and team-level experiment histories.
+
+In short: Aviexa aims to become the debugging layer between ML training runs and IBM Bob, helping developers move from "something broke" to "here is the likely cause, fix, and report."
+
+---
+
 ## Verification
 
 ```powershell

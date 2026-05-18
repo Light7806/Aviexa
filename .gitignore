@@ -63,6 +63,8 @@ htmlcov/
 aviexa-reports/
 *.pdf
 reports/*.pdf
+!bob-sessions/
+!bob-sessions/**
 
 # Logs
 *.log
